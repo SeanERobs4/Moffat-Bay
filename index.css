@@ -130,7 +130,7 @@ body, html {
 }
 
 .top-section {
-  background-image: url("images/home/sunset3.png"); /* Replace with the actual image file path */
+  background-image: url("home/sunset3.png"); /* Replace with the actual image file path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
