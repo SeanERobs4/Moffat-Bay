@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <!-- CHANGE TITLE -->
+    <title>Registration</title>
+    <!-- CHANGE href to css file -->
+    <link rel="stylesheet" type="text/css" href="registration.css">
+    <meta http-quiv = "content-type" content = "text/html; charset = UTF-8"/>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <!-- FAR RIGHT REGISTER/LOGIN/USER LOGO -->
+        <div class="logo">
+            <a href="index.html";>
+            <img src="home/logo.png" height="200" alt="Logo">
+            </a>
+        </div>
+        <div class="user-links">
+            <a href="#">Register</a>
+            <a href="login.html">Login</a>
+            <img src="home/user_image.png" alt="User Image">
+        </div>
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+    <div class="user-buttons">
+        <a href="#" class="header-button">About Us</a>
+        <a href="#" class="header-button">Contact Us</a>
+        <a href="#" class="header-button">Attractions</a>
+        <div class="dropdown">
+            <a href="#" class="header-button reservation-button">Reservations</a>
+            <div class="dropdown-content">
+                <a href="#">Reservation Lookup</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BODY CONTENT -->
+
+    <div class="body-content">
+        <h1>New Guest Registration</h1>
+        <form id ="registrationForm" action="registration_handler.php" method="post">
+            <div class="form-row">
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="state">State Abbreviation</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="email-label">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                       
+                    </div>
+                    <div class="input-group">
+                        <label for="password" class="password-label">Password*<span class="tooltip"></span>
+                        </label>
+                        <input type="password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" name="zip" pattern="\d{5}" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Create Account">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+        
+            if (password !== confirmPassword) {
+                alert('Your passwords do not match.');
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+        </script>
+
+    <!-- FOOTER -->
+    <footer>
+        <!-- COPYRIGHT -->
+        <div class="footer-column" id="copyright-column">
+            <p>&copy; 2023 Moffat Bay Lodge</p>
+        </div>
+        <!-- ADDRESS-->
+        <div class="footer-column" id="contact-column">
+            <p>(012) 345-6789</p>
+            <p>P.O. Box 1212, Joviedsa Island, WA 98765</p>
+        </div>
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-column" id="social-media-column">
+            <a href="https://www.facebook.com/" target="_blank"><img src="home/facebook.png" alt="Facebook"></a> 
+            <a href="https://www.instagram.com/" target="_blank"><img src="home/instagram.png" alt="Instagram"></a> 
+            <a href="https://www.twitter.com/" target="_blank"><img src="home/x.png" alt="X Social Media"></a>
+        </div>
+    </footer>
+
+</body>
+</html>
