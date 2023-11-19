@@ -18,11 +18,11 @@
         <!-- FAR RIGHT REGISTER/LOGIN/USER LOGO -->
         <div class="logo">
             <a href="index.html";>
-            <img src="home/logo.png" height="200" alt="Logo">
+            <img src="home/salishlogo.png" height="200" alt="Logo">
             </a>
         </div>
         <div class="user-links">
-            <a href="#">Register</a>
+            <a href="registration.html">Register</a>
             <a href="login.html">Login</a>
             <img src="home/user_image.png" alt="User Image">
         </div>
@@ -30,8 +30,7 @@
 
     <!-- NAVIGATION BUTTONS -->
     <div class="user-buttons">
-        <a href="#" class="header-button">About Us</a>
-        <a href="#" class="header-button">Contact Us</a>
+        <a href="about-us.html" class="header-button">About Us</a>
         <a href="#" class="header-button">Attractions</a>
         <div class="dropdown">
             <a href="#" class="header-button reservation-button">Reservations</a>
@@ -46,8 +45,11 @@
 
     <div class="body-content">
         <h1>New Guest Registration</h1>
+        <!--Action for our registration handler PHP file.-->
         <form id ="registrationForm" action="registration_handler.php" method="post">
             <div class="form-row">
+
+                <!--Two columns of five input fields for registration.-->
                 <div class="form-column">
                     <div class="input-group">
                         <label for="fname">First Name</label>
@@ -99,6 +101,7 @@
         </form>
     </div>
 
+    <!--JS to ensure password and confirm password fields are matches before accepting submission.-->
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
             var password = document.getElementById('password').value;
@@ -106,7 +109,7 @@
         
             if (password !== confirmPassword) {
                 alert('Your passwords do not match.');
-                e.preventDefault(); // Prevent form submission
+                e.preventDefault();
             }
         });
         </script>
