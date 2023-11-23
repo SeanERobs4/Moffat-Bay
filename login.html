@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CHANGE TITLE -->
+    <title>Login</title>
+    <!-- CHANGE href to css file -->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <!-- FAR RIGHT REGISTER/LOGIN/USER LOGO -->
+        <div class="logo">
+            <a href="index.html";>
+            <img src="home/salishlogo.png" height="200" alt="Logo">
+            </a>
+        </div>
+        <div class="user-links">
+            <a href="registration.html">Register</a>
+            <a id="login-link" href="login.html">Login</a>
+            <img src="home/user_image.png" alt="User Image">
+        </div>
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+    <div class="user-buttons">
+        <a href="about-us.html" class="header-button">About Us</a>
+        <a href="#" class="header-button">Attractions</a>
+        <div class="dropdown">
+            <a href="reservation.html" class="header-button reservation-button">Reservations</a>
+            <div class="dropdown-content">
+                <a href="#">Reservation Lookup</a>
+            </div>
+        </div>
+    </div>
+ 
+
+    <!-- BODY CONTENT -->
+    <div class="body-content">
+        <div class="login-container">
+            <img src="home/forest_clipart.png" height="100">
+            <h2>Log into your Moffat Bay Lodge Account</h2>
+            <!-- Keep the inner form tag and change the action to login.php -->
+            <form id="loginForm" action="login.php" method="post">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <div><button class="submit-button" type="submit">Login</button></div>
+            </form>
+            <div id="login-message"></div>
+            <a href="registration.html" class="submit-button">Create Account</a>
+        </div>
+        </div>
+
+
+
+   </footer>
+
+   <!--Import jquery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    
+<!--Add a div element to display the error message -->
+<div id="error-message"></div>
+
+<script>
+
+    //Get the login form element by its id
+var loginForm = document.getElementById("loginForm");
+
+//Add an event listener to the submission
+loginForm.addEventListener("submit", function(event) {
+
+    //Prevent the default form submission behavior
+    event.preventDefault();
+
+    //Create a new XMLHttpRequest object
+    var xhttp = new XMLHttpRequest();
+
+    //Define a function that will run when the response is ready
+    xhttp.onreadystatechange = function() {
+
+        // Check if the request is completed and successful
+        if (this.readyState == 4 && this.status == 200) {
+            
+            
+            if (this.responseText == "success") {
+    //On success, redirect to reservation.html
+    window.location.replace("reservation.html");
+} else {
+    //If not successful, error message.
+    alert(this.responseText);
+}
+        }
+    };
+    //Open the request with the POST method and the login.php file as the URL
+    xhttp.open("POST", "login.php", true);
+    //Set the request header to indicate the content type
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //Grab necessary credentials from the login
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    //Send request with email  password
+    xhttp.send("email=" + email + "&password=" + password);
+});
+</script>
+</body>
+
+</html>
