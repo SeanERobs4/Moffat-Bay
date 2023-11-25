@@ -1,5 +1,8 @@
 <?php
-$servername = "localhost";
+/* 
+Team Alpha
+Sean Christman, Kadar Gayle, Rachel Nelson, Elijah Wilkinson */
+$servername = "localhost:3306";
 $username = "Alpha";
 $password = "Capstone";
 $dbname = "MoffatBay";
@@ -29,7 +32,8 @@ $city = $_POST["city"];
 $zip = $_POST["zip"];
 $stmt->execute();
 
-echo "New record created successfully";
+header('Location: login.html');
+exit;
 
 $stmt->close();
 $conn->close();
